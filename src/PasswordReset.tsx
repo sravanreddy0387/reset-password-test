@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./PasswordReset.css";
 
 const PasswordReset: React.FC = () => {
     const [newPassword, setNewPassword] = useState<string>("");
@@ -22,6 +23,8 @@ const PasswordReset: React.FC = () => {
   
     return (
       <div className="container">
+        <h2>Password Reset</h2>
+        <label htmlFor="newPassword">New Password:</label>
         <input
           type="password"
           id="newPassword"
@@ -29,7 +32,11 @@ const PasswordReset: React.FC = () => {
           onChange={handlePasswordChange}
         />
         <button disabled={!isValidPassword}>Reset Password</button>
-       
+        <p className="validation-message">
+          Password must be at least 8 characters long, including at least one
+          number and at least two special characters, or be greater than 15
+          characters with no restriction.
+        </p>
       </div>
     );
   };
